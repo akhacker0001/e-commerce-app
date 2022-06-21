@@ -15,8 +15,8 @@ const Navbar = () => {
         <li className="nav-item mx-2">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
-        <li className="nav-item mx-2">
-          <Link className="nav-link" to="/products">product</Link>
+        <li className="nav-item mx-2" >
+          <Link  className="nav-link" to="/products">product</Link>
         </li>
         <li className="nav-item mx-2">
           <Link className="nav-link" to="/products">About</Link>
@@ -26,7 +26,7 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="cart mx-4">
-          <span href='/' className="btn btn-outline-light"><i className="fas fa-shopping-cart"></i> Cart</span>
+          <Link to='cart' className="btn btn-outline-light"><i className="fas fa-shopping-cart"></i> Cart</Link>
       </div>
     </div>
   </div>

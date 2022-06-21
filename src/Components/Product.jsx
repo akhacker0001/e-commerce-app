@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import ProductLoading from './ProductLoading';
+import { addToCart } from '../store/slice';
 
 const Product = () => {
     const id = useParams()
+    const dispatch = useDispatch()
     
     const [loading, setLoading] = useState(false);
     // setId(useParams())
@@ -19,6 +22,9 @@ const Product = () => {
       
     }, []);
 
+    // const addCart = () => {
+
+    // }
     
   return (
   <>
@@ -34,8 +40,8 @@ const Product = () => {
          <p className='lead fw-bolder'> Rating {data.rating && data.rating.rate} <i className='fa fa-star'></i></p>
          <h3 className='display-6 fw-bold my-4'> $ {data.price}</h3>
          <p className="lead">{data.description}</p>
-         <button className='btn btn-outline-dark'> Add To Cart</button>
-<button className='btn btn-dark mx-3'> Go To Cart</button>
+         <button onClick={ ()=>dispatch(addToCart({id:data.id}))} className='btn btn-outline-dark'> Add To Cart</button>
+        <Link to="/cart" className='btn btn-dark mx-3'> Go To Cart</Link>
          </div>
      </div>
  

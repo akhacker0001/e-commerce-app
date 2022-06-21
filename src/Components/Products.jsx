@@ -3,22 +3,16 @@ import LoadinSkeletion from './LoadinSkeletion';
 // import Spinner from './Spinner';
 import {Link} from "react-router-dom"
 
-const Poducts = () => {
-    const [data, setData] = useState([]);
-    const [filter, setFilter] = useState(data);
-    const [loading, setLoading] = useState(false);
+const Poducts = ({data,loading}) => {
+  
+    const [filter, setFilter] = useState([]);
 
-    useEffect(() => {
-        const getProducts = async () => {
-            setLoading(true)
-            let api = "https://fakestoreapi.com/products";
-            const response = await fetch(api)
-            setData(await response.clone().json())
-            setFilter(await response.json())
-            setLoading(false)
-        }
-        getProducts();
-    }, []);
+    useEffect(()=>{
+        setFilter(data)
+    },[data])
+
+
+   
 
     const filterData = (cat) => {
   
